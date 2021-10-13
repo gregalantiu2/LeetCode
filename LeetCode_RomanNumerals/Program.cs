@@ -8,7 +8,7 @@ namespace LeetCode_RomanNumerals
     {
         public static void Main(string[] args)
         {
-            Solution.RomanToInt("III");
+            Solution.RomanToInt("IV");
         }
     }
     public static class Solution
@@ -29,9 +29,36 @@ namespace LeetCode_RomanNumerals
             char[] stringArray = s.ToCharArray();
 
             List<int> numbers = new List<int>();
+            bool skip = false;
             for (int i = 0; i < stringArray.Length; i++)
             {
-                numbers.Add(dict[stringArray[i].ToString()]);
+                if((i + 1 < stringArray.Length) && (stringArray[i + 1].ToString() != "I"))
+                {
+                    numbers.Add(dict[stringArray[i + 1].ToString()] - 1);
+                    skip = true;
+                }
+                else
+                {
+                    if(skip != true)
+                    {
+                        numbers.Add(dict[stringArray[i].ToString()]);
+                    }
+                    else
+                    {
+                        skip = false;
+                    }
+                }
+            }
+
+            if(numbers.Contains(1))
+            {
+                if (numbers.Contains(5) || numbers.Contains(10) || numbers.Contains(50)
+                || numbers.Contains(100) || numbers.Contains(500) || numbers.Contains(1000))
+                {
+
+                }
+
+
             }
 
             int result = 0;
