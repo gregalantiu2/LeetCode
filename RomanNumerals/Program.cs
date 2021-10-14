@@ -8,7 +8,7 @@ namespace LeetCode_RomanNumerals
     {
         public static void Main(string[] args)
         {
-            Solution.RomanToInt("LVIII");
+            Solution.RomanToInt("MCMXCIV");
         }
     }
     public static class Solution
@@ -34,10 +34,11 @@ namespace LeetCode_RomanNumerals
 
             for (int i = 0; i < stringArray.Length; i++)
             {
-                if((i + 1 < stringArray.Length) && (stringArray[i + 1].ToString() != "I"))
+                if((i + 1 < stringArray.Length) && (stringArray[i + 1].ToString() != stringArray[i].ToString()
+                    && (dict[stringArray[i].ToString()] < dict[stringArray[i + 1].ToString()])))
                 {
-                    numbers.Add(dict[stringArray[i + 1].ToString()] - 1);
-                    result += dict[stringArray[i + 1].ToString()] - 1;
+                    numbers.Add(dict[stringArray[i + 1].ToString()] - dict[stringArray[i].ToString()]);
+                    result += dict[stringArray[i + 1].ToString()] - dict[stringArray[i].ToString()];
                     skip = true;
                 }
                 else
