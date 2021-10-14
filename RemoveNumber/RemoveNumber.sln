@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.11
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveNumber", "RemoveNumber\RemoveNumber.csproj", "{DF749425-6F10-4EE4-A3EA-730C61E0E0EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF749425-6F10-4EE4-A3EA-730C61E0E0EA}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{DF749425-6F10-4EE4-A3EA-730C61E0E0EA}.Debug|anycpu.Build.0 = Debug|anycpu
+		{DF749425-6F10-4EE4-A3EA-730C61E0E0EA}.Release|anycpu.ActiveCfg = Release|anycpu
+		{DF749425-6F10-4EE4-A3EA-730C61E0E0EA}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E155A0A2-98AA-44BB-A6D1-0E86DE41548F}
+	EndGlobalSection
+EndGlobal
