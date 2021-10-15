@@ -27,8 +27,6 @@ namespace LeetCode_RomanNumerals
              };
 
             char[] stringArray = s.ToCharArray();
-
-            List<int> numbers = new List<int>();
             bool skip = false;
             int result = 0;
 
@@ -37,7 +35,6 @@ namespace LeetCode_RomanNumerals
                 if((i + 1 < stringArray.Length) && (stringArray[i + 1].ToString() != stringArray[i].ToString()
                     && (dict[stringArray[i].ToString()] < dict[stringArray[i + 1].ToString()])))
                 {
-                    numbers.Add(dict[stringArray[i + 1].ToString()] - dict[stringArray[i].ToString()]);
                     result += dict[stringArray[i + 1].ToString()] - dict[stringArray[i].ToString()];
                     skip = true;
                 }
@@ -45,7 +42,7 @@ namespace LeetCode_RomanNumerals
                 {
                     if(skip != true)
                     {
-                        numbers.Add(dict[stringArray[i].ToString()]);
+                        result += dict[stringArray[i].ToString()];
                     }
                     else
                     {
@@ -53,15 +50,6 @@ namespace LeetCode_RomanNumerals
                     }
                 }
             }
-
-
-            result += (1 * numbers.Where(x => x == 1).Count());
-            result += (5 * numbers.Where(x => x == 5).Count());
-            result += (10 * numbers.Where(x => x == 10).Count());
-            result += (50 * numbers.Where(x => x == 50).Count());
-            result += (100 * numbers.Where(x => x == 100).Count());
-            result += (500 * numbers.Where(x => x == 500).Count());
-            result += (1000 * numbers.Where(x => x == 1000).Count());
 
             return result;
         }
