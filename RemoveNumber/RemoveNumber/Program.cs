@@ -15,17 +15,21 @@ namespace RemoveNumber
     {
         public static int RemoveElement(int[] nums, int val)
         {
-            int[] newArray = new int[nums.Length];
             int counter = 0;
-            for(int i = 0; i < nums.Length; i++)
+            int index = 0;
+            for (int i = 0; i < nums.Length; i++)
             {
-                if(nums[i] != val)
+                if (nums[i] != val)
                 {
-                    newArray[i] = nums[i];
+                    nums[index] = nums[i];
                     counter++;
+                    index++;
+                }
+                else
+                {
+                    nums[i] = 0;
                 }
             }
-            nums = newArray;
             return counter;
         }
     }
