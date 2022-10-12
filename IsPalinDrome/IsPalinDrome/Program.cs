@@ -7,8 +7,8 @@ namespace IsPalinDrome
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter in a number: ");
-            var input = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Enter in a a word: ");
+            var input = Console.ReadLine();
             var result = IsPalindrome(input);
             
             if (result == true)
@@ -21,11 +21,16 @@ namespace IsPalinDrome
             }
         }
 
-        public static bool IsPalindrome(int x)
+        public static bool IsPalindrome(string x)
         {
-            var container = x.ToString().ToCharArray();
+            var container = x.ToLower().Replace(" ", string.Empty).ToCharArray();
+
+            container = Array.FindAll(container, char.IsLetterOrDigit);
             
-            var reverseContainer = x.ToString().ToCharArray(); 
+            var reverseContainer = new char[container.Length];
+
+            Array.Copy(container, reverseContainer, container.Length);
+
             Array.Reverse(reverseContainer);
 
             return Enumerable.SequenceEqual(container, reverseContainer);
