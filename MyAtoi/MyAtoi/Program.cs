@@ -22,6 +22,7 @@ namespace MyAtoi
             var characters = input.ToCharArray();
 
             string result = "";
+            bool containsNumber = false;
 
             for (int i = 0; i < characters.Length; i++)
             {
@@ -38,13 +39,23 @@ namespace MyAtoi
                     }
                     else
                     {
+                        containsNumber = true;
                         result += number.ToString();
                     }
                 }
             }
 
             int answer;
-            if (Int32.TryParse(result, out answer) == false)
+            bool canParse = Int32.TryParse(result, out answer);
+            if (canParse == false && containsNumber == true && characters[0] == '-')
+            {
+                return Int32.MinValue;
+            }
+            else if (canParse == false && containsNumber == true)
+            {
+                return Int32.MaxValue;
+            }
+            else if(canParse == false)
             {
                 return 0;
             }
