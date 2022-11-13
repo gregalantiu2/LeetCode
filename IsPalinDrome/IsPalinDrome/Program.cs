@@ -26,7 +26,7 @@ namespace IsPalinDrome
             var container = x.ToLower().Replace(" ", string.Empty).ToCharArray();
 
             container = Array.FindAll(container, char.IsLetterOrDigit);
-            
+
             var reverseContainer = new char[container.Length];
 
             Array.Copy(container, reverseContainer, container.Length);
