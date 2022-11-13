@@ -26,9 +26,9 @@ namespace MyAtoi
 
             for (int i = 0; i < characters.Length; i++)
             {
-                if (i == 0 && characters[i] == '-')
+                if (i == 0 && (characters[i] == '-' || characters[i] == '+'))
                 {
-                    result += "-";
+                    result += characters[i].ToString();
                 }
                 else
                 {
