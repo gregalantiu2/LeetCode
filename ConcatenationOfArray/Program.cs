@@ -1,6 +1,9 @@
-﻿int[] nums = new int[3] {1,2,1};
+﻿using System.Linq;
+
+int[] nums = new int[3] {1,2,1};
 
 Console.WriteLine(Solution.CheckAnswer(Solution.GetConcatenation(nums)).ToString());
+Console.WriteLine(Solution.CheckAnswer(Solution.GetConcatenation2(nums)).ToString());
 
 public static class Solution {
     public static int[] GetConcatenation(int[] nums) {
@@ -14,6 +17,10 @@ public static class Solution {
         }
 
         return ans;
+    }
+
+    public static int[] GetConcatenation2(int[] nums) {
+        return nums.Concat(nums).ToArray();
     }
 
     public static bool CheckAnswer(int[] solution)
