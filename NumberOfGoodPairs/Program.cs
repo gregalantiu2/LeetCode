@@ -1,6 +1,9 @@
-﻿int[] nums = new int[6] {1,2,3,1,1,3};
+﻿using System.Collections.Generic;
+
+int[] nums = new int[6] {1,2,3,1,1,3};
 
 Console.WriteLine(Solution.CheckAnswer(Solution.NumberOfGoodPairs(nums)).ToString());
+Console.WriteLine(Solution.CheckAnswer(Solution.NumberOfGoodPairs2(nums)).ToString());
 
 public static class Solution {
     public static int NumberOfGoodPairs(int[] nums) {
@@ -14,6 +17,26 @@ public static class Solution {
                 {
                     answer++;
                 }
+            }
+        }
+
+        return answer;
+    }
+
+    public static int NumberOfGoodPairs2(int[] nums) {
+        Dictionary<int,int> tracker = new Dictionary<int,int>();
+        int answer = 0;
+
+        foreach(int num in nums)
+        {
+            if(tracker.ContainsKey(num))
+            {
+                answer += tracker[num];
+                tracker[num]++;
+            }
+            else
+            {
+                tracker[num] = 1;
             }
         }
 
