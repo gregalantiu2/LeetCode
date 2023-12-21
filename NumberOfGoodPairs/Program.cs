@@ -31,7 +31,12 @@ public static class Solution {
         {
             if(tracker.ContainsKey(num))
             {
+                // Add to the answer the current count of pairs for this number. 
+                // This is because, for each occurrence of the number, it forms pairs with all the previous occurrences.
                 answer += tracker[num];
+
+                // Increment the count of occurrences of this number in the tracker. 
+                // We do this to keep track of how many times we've encountered this number.
                 tracker[num]++;
             }
             else
